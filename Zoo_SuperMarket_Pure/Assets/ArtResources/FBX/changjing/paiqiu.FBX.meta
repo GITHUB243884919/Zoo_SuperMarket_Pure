@@ -1,0 +1,241 @@
+fileFormatVersion: 2
+guid: 6b0c64c2b46d4ae4fa832462e32d8a79
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Bip001
+    100002: Bip001 Footsteps
+    100004: Bip001 Head
+    100006: Bip001 HeadNub
+    100008: Bip001 L Calf
+    100010: Bip001 L Clavicle
+    100012: Bip001 L Foot
+    100014: Bip001 L Forearm
+    100016: Bip001 L Hand
+    100018: Bip001 L Thigh
+    100020: Bip001 L Toe0
+    100022: Bip001 L Toe0Nub
+    100024: Bip001 L UpperArm
+    100026: Bip001 Neck
+    100028: Bip001 Pelvis
+    100030: Bip001 R Calf
+    100032: Bip001 R Clavicle
+    100034: Bip001 R Foot
+    100036: Bip001 R Forearm
+    100038: Bip001 R Hand
+    100040: Bip001 R Thigh
+    100042: Bip001 R Toe0
+    100044: Bip001 R Toe0Nub
+    100046: Bip001 R UpperArm
+    100048: Bip001 Spine
+    100050: Bip002
+    100052: Bip002 Footsteps
+    100054: Bip002 Head
+    100056: Bip002 HeadNub
+    100058: Bip002 L Calf
+    100060: Bip002 L Clavicle
+    100062: Bip002 L Foot
+    100064: Bip002 L Forearm
+    100066: Bip002 L Hand
+    100068: Bip002 L Thigh
+    100070: Bip002 L Toe0
+    100072: Bip002 L Toe0Nub
+    100074: Bip002 L UpperArm
+    100076: Bip002 Neck
+    100078: Bip002 Pelvis
+    100080: Bip002 R Calf
+    100082: Bip002 R Clavicle
+    100084: Bip002 R Foot
+    100086: Bip002 R Forearm
+    100088: Bip002 R Hand
+    100090: Bip002 R Thigh
+    100092: Bip002 R Toe0
+    100094: Bip002 R Toe0Nub
+    100096: Bip002 R UpperArm
+    100098: Bip002 Spine
+    100100: Bone001
+    100102: daoju_5
+    100104: npc_009
+    100106: npc_010
+    100108: //RootNode
+    400000: Bip001
+    400002: Bip001 Footsteps
+    400004: Bip001 Head
+    400006: Bip001 HeadNub
+    400008: Bip001 L Calf
+    400010: Bip001 L Clavicle
+    400012: Bip001 L Foot
+    400014: Bip001 L Forearm
+    400016: Bip001 L Hand
+    400018: Bip001 L Thigh
+    400020: Bip001 L Toe0
+    400022: Bip001 L Toe0Nub
+    400024: Bip001 L UpperArm
+    400026: Bip001 Neck
+    400028: Bip001 Pelvis
+    400030: Bip001 R Calf
+    400032: Bip001 R Clavicle
+    400034: Bip001 R Foot
+    400036: Bip001 R Forearm
+    400038: Bip001 R Hand
+    400040: Bip001 R Thigh
+    400042: Bip001 R Toe0
+    400044: Bip001 R Toe0Nub
+    400046: Bip001 R UpperArm
+    400048: Bip001 Spine
+    400050: Bip002
+    400052: Bip002 Footsteps
+    400054: Bip002 Head
+    400056: Bip002 HeadNub
+    400058: Bip002 L Calf
+    400060: Bip002 L Clavicle
+    400062: Bip002 L Foot
+    400064: Bip002 L Forearm
+    400066: Bip002 L Hand
+    400068: Bip002 L Thigh
+    400070: Bip002 L Toe0
+    400072: Bip002 L Toe0Nub
+    400074: Bip002 L UpperArm
+    400076: Bip002 Neck
+    400078: Bip002 Pelvis
+    400080: Bip002 R Calf
+    400082: Bip002 R Clavicle
+    400084: Bip002 R Foot
+    400086: Bip002 R Forearm
+    400088: Bip002 R Hand
+    400090: Bip002 R Thigh
+    400092: Bip002 R Toe0
+    400094: Bip002 R Toe0Nub
+    400096: Bip002 R UpperArm
+    400098: Bip002 Spine
+    400100: Bone001
+    400102: daoju_5
+    400104: npc_009
+    400106: npc_010
+    400108: //RootNode
+    2100000: 'Material #42'
+    2100002: 07 - Default
+    2100004: 'Material #25'
+    4300000: daoju_5
+    4300002: npc_010
+    4300004: npc_009
+    7400000: paiqiu
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: daoju_5
+    13700002: npc_009
+    13700004: npc_010
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: paiqiu
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.099999994
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
