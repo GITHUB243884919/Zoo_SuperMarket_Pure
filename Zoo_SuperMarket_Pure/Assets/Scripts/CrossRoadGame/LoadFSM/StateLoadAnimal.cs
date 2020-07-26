@@ -101,20 +101,14 @@ namespace CrossRoadGame
             animalTeamModel.numArrivedEndPoint = 0;
 
             List<int> animalResourceloadList = GetAnimaelList(cellStage.animalnum);
-            for (int i = 0; i < cellStage.animalnum; i++)
+            for (int i = 0; i < animalResourceloadList.Count; i++)
             {
                 var animal = EntityManager.GetInstance().GenEntityGameObject(
                     animalResourceloadList[i], EntityFuncType.Animal_LittleGame) as EntityCrossRoadAnimal;
-                //var animal = EntityManager.GetInstance().GenEntityGameObject(
-                //    2201, EntityFuncType.Animal_LittleGame) as EntityCrossRoadAnimal;
-                //LogWarp.LogErrorFormat("     {0}",animal.mainGameObject.name);
                 animal.Init(animalAnimationSpeed, animalMoveSpeed, i,
                     animalAcceleration, rotateSpeed);
-                //LogWarp.LogErrorFormat("测试：动物赋值   {0}        {1}        {2}       {3}       {4}  ", animalAnimationSpeed, animalMoveSpeed, i, animalAcceleration, rotateSpeed);
                 animal.position = animalRoadSegment[animalTeamModel.currentRoad]
                     + Vector3.back * (standardAnimalBoxSize.z * i + standardAnimalBoxSize.z * 0.8f);
-                //animal.position = animalRoadSegment[animalTeamModel.currentRoad]
-                //    + Vector3.back * (standardAnimalBoxSize.z * i);
                 GameObject colliderGB = animal.GetTrans().Find("Collider").gameObject;
                 colliderGB.SetActive(true);
                 FSMCrossRoadGame.Scale_Z(animal.mainGameObject, standardAnimalBoxSize.z);
@@ -146,38 +140,24 @@ namespace CrossRoadGame
                 CrossRoadModelManager.GetInstance().entityModel.AddToEntityMovables(animal);
             }
         }
+
         private List<int> GetAnimaelList(int number)
         {
             PlayerData playerData = GlobalDataManager.GetInstance().playerData;
             /*获取动物列表  随机存放*/
             List<int> animalResourceloadList = new List<int>();
 
-            if (playerData.playerLittleGame.isFirst)
-            {
-                var gameranksCell = Config.gameranksConfig.getInstace().getCell(1);
+            int stageID = GlobalDataManager.GetInstance().playerData.playerLittleGame.stageID;
 
-                for (int i = 0; i < gameranksCell.ranksanimalid.Length; i++)
-                {
-                    int resourceload = Config.animalupConfig.getInstace().getCell(gameranksCell.ranksanimalid[i]).resourceload;
-                    animalResourceloadList.Add(resourceload);
-                }
-            }
-            else
+            var gameranksCell = Config.gameranksConfig.getInstace().getCell(Math.Max(1, stageID));
+            for (int i = 0; i < gameranksCell.ranksanimalid.Length; i++)
             {
-                int stageID = GlobalDataManager.GetInstance().playerData.playerLittleGame.stageID;
-                var gameranksCell = Config.gameranksConfig.getInstace().getCell(stageID);
-
-                for (int i = 0; i < gameranksCell.ranksanimalid.Length; i++)
-                {
-                    int resourceload = Config.animalupConfig.getInstace().getCell(gameranksCell.ranksanimalid[i]).resourceload;
-                    animalResourceloadList.Add(resourceload);
-                }
+                int resourceload = Config.animalupConfig.getInstace().getCell(gameranksCell.ranksanimalid[i]).resourceload;
+                animalResourceloadList.Add(resourceload);
             }
-            
+
             return animalResourceloadList;
         }
-
-
 
         /// <summary>
         /// 设置刚体属性

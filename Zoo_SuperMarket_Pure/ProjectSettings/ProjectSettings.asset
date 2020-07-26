@@ -3,7 +3,7 @@
 --- !u!129 &1
 PlayerSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 15
+  serializedVersion: 18
   productGUID: 7d79ba3c2bac45e4e905ec7948a14c8b
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
@@ -13,12 +13,12 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Idle Zoo Tycoon
+  productName: CrossRoad
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_ShowUnitySplashScreen: 1
-  m_ShowUnitySplashLogo: 0
+  m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 0
   m_SplashScreenLogoStyle: 1
@@ -54,8 +54,8 @@ PlayerSettings:
   m_StackTraceTypes: 010000000100000001000000010000000100000001000000
   iosShowActivityIndicatorOnLoading: -1
   androidShowActivityIndicatorOnLoading: -1
-  iosAppInBackgroundBehavior: 0
   displayResolutionDialog: 1
+  iosUseCustomAppBackgroundBehavior: 0
   iosAllowHTTPDownload: 1
   allowedAutorotateToPortrait: 1
   allowedAutorotateToPortraitUpsideDown: 1
@@ -120,7 +120,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 2.1
+  bundleVersion: 0.1
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -145,6 +145,9 @@ PlayerSettings:
     oculus:
       sharedDepthBuffer: 1
       dashSupport: 1
+      lowOverheadMode: 0
+      protectedContext: 0
+      v2Signing: 0
     enable360StereoCapture: 0
   protectGraphicsMemory: 0
   enableFrameTimingStats: 0
@@ -155,10 +158,10 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.minigame.idlezoo.az
+    Android: com.hillgame.crossroad.yyy
   buildNumber: {}
-  AndroidBundleVersionCode: 21
-  AndroidMinSdkVersion: 16
+  AndroidBundleVersionCode: 1
+  AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -243,10 +246,10 @@ PlayerSettings:
   clonedFromGUID: c0afd0d1d80e3634a9dac47e8a0426ea
   templatePackageId: com.unity.template.3d@1.3.0
   templateDefaultScene: Assets/Scenes/SampleScene.unity
-  AndroidTargetArchitectures: 3
+  AndroidTargetArchitectures: 1
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: D:/fzy/work_project/guaji/trunk/Program/Client/AndroidKeyStore/user.keystore
+  AndroidKeystoreName: I:/Fzy/HillGame/Zoo_SuperMarket_Pure/user.keystore
   AndroidKeyaliasName: 123456
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
@@ -646,7 +649,7 @@ PlayerSettings:
     7: LOG1;DebugFile1;DEBUG_VISIT1;NOVICEGUIDE;Dev_Branche
   platformArchitecture: {}
   scriptingBackend:
-    Android: 1
+    Android: 0
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}

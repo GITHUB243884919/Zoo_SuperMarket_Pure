@@ -81,16 +81,19 @@ namespace CrossRoadGame
         {
             base.Active();
             MessageManager.GetInstance().Send((int)GameMessageDefine.IncreaseCrossRoadStageID);
+            UIPage.SwitchButtonUnClickable(receiveButton, true);
             //设置新手阶段 的按钮置灰
-            UIPage.SwitchButtonUnClickable(receiveButton, ! playerData.playerLittleGame.isFirst);
-            if (playerData.playerLittleGame.isFirst)
-            {
-                OnGuideCrossRoad();
-            }
-            else
+            //UIPage.SwitchButtonUnClickable(receiveButton, ! playerData.playerLittleGame.isFirst);
+            //if (playerData.playerLittleGame.isFirst)
+            //{
+            //    OnGuideCrossRoad();
+            //}
+            //else
             {
                 tipsHand.gameObject.SetActive(false);
             }
+
+
             var parkingCenterData = GlobalDataManager.GetInstance().playerData.GetParkingCenterDataIDIndexOfDataIdx(playerData.playerZoo.currSceneID);
             //coin = PlayerDataModule.CurrScenePerMinCoin(true) * (int)(2 + (parkingCenterData.parkingProfitLevel + playerData.GetEntryDateDataIDIndexOfDataIdx(playerData.playerZoo.currSceneID).entryTicketsLevel) / 260f);
             coin = 10;

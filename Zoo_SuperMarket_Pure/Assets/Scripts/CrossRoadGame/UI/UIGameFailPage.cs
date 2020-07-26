@@ -74,14 +74,14 @@ namespace CrossRoadGame
             IninCompentData();
 
             //设置新手阶段 的按钮置灰
-            UIPage.SwitchButtonUnClickable(returnButton,! playerData.playerLittleGame.isFirst);
+            //UIPage.SwitchButtonUnClickable(returnButton,! playerData.playerLittleGame.isFirst);
             PageMgr.ClosePage<UIGameVictoryPage>();
 
-            if (playerData.playerLittleGame.isFirst)
-            {
-                OnGuideCrossRoad();
-            }
-            else
+            //if (playerData.playerLittleGame.isFirst)
+            //{
+            //    OnGuideCrossRoad();
+            //}
+            //else
             {
                 tipsHand.gameObject.SetActive(false);
             }

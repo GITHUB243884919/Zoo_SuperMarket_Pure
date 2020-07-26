@@ -338,7 +338,6 @@ public partial class UIMainPage : UIPage
 #if NOVICEGUIDE
             PageMgr.ShowPage<UIGuidePage>();  //新手引导页面交互
             LogWarp.Log("NOVICEGUIDE  时候打开 新手引导");
-            Game.Event_SDK.AppsFlyerEvent.GetInstance().SendEvent(AppsFlyerEnum.first_enter_game);
 #endif
         }
         else
