@@ -38,8 +38,11 @@ namespace CrossRoadGame
 
         public void SetLoadingPageSlider()
         {
+            //(PageMgr.allPages[loadingPageName] as UICrossRoadLoading).SliderValueLoading(
+            //    1f / numState);
+
             (PageMgr.allPages[loadingPageName] as UICrossRoadLoading).SliderValueLoading(
-                1f / numState);
+                1f);
         }
 
         /// <summary>
