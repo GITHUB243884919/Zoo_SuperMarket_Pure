@@ -380,29 +380,29 @@ public static class ExtendTool
         return result;
     }
 
-    static AndroidJavaObject m_class = null;
+    //static AndroidJavaObject m_class = null;
     public static void DoShake(this GameObject obj, long waitTime, long doTime, bool isCircle)
     {
-#if UNITY_ANDROID && !UNITY_EDITOR
-        if(m_class == null)
-        {
-            AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-            m_class = jc.GetStatic<AndroidJavaObject>("currentActivity");
-        }
-        if(m_class != null)
-        {
-            m_class.Call("DoVibrate", waitTime, doTime, isCircle);
-        }
-        else
-        {
-            Debug.Log("Do Shake Class Null");
-        }
-#elif UNITY_IOS && !UNITY_EDITOR
-        if(GameInit.g_Init != null)
-        {
-            GameInit.g_Init.StartCoroutine(DelayDoShake(waitTime,doTime, isCircle));
-        }
-#endif
+//#if UNITY_ANDROID && !UNITY_EDITOR
+//        if(m_class == null)
+//        {
+//            AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+//            m_class = jc.GetStatic<AndroidJavaObject>("currentActivity");
+//        }
+//        if(m_class != null)
+//        {
+//            m_class.Call("DoVibrate", waitTime, doTime, isCircle);
+//        }
+//        else
+//        {
+//            Debug.Log("Do Shake Class Null");
+//        }
+//#elif UNITY_IOS && !UNITY_EDITOR
+//        if(GameInit.g_Init != null)
+//        {
+//            GameInit.g_Init.StartCoroutine(DelayDoShake(waitTime,doTime, isCircle));
+//        }
+//#endif
     }
     public static IEnumerator DelayDoShake(long waitTime, long doTime, bool isCircle)
     {
@@ -431,44 +431,44 @@ public static class ExtendTool
     }
     public static void CancelShake(this GameObject obj)
     {
-#if UNITY_ANDROID && !UNITY_EDITOR
-        if(m_class != null)
-        {
-            m_class.Call("CancelVibrate");
-        }
-#elif UNITY_IOS && !UNITY_EDITOR
-        if (GameInit.g_Init != null)
-        {
-            GameInit.g_Init.StopCoroutine(DelayDoShake(0, 0, false));
-        }
-#endif
+//#if UNITY_ANDROID && !UNITY_EDITOR
+//        if(m_class != null)
+//        {
+//            m_class.Call("CancelVibrate");
+//        }
+//#elif UNITY_IOS && !UNITY_EDITOR
+//        if (GameInit.g_Init != null)
+//        {
+//            GameInit.g_Init.StopCoroutine(DelayDoShake(0, 0, false));
+//        }
+//#endif
 
     }
     public static bool CheckInFrontOfMe(this Transform Trans,Transform Target)
     {
        return  Vector3.Dot(Trans.forward, (Target.position - Trans.position).normalized) > 0;
     }
-#if UNITY_IOS && !UNITY_EDITOR
-    [DllImport("__Internal")]
-    public extern static void DoShake(int type);
-#endif
+//#if UNITY_IOS && !UNITY_EDITOR
+//    [DllImport("__Internal")]
+//    public extern static void DoShake(int type);
+//#endif
     public static void CheckToResetScreenSolution(this MonoBehaviour be)
     {
-#if UNITY_IOS
-        if(Util.Flag_ExternScreen())
-        {
-            int scWidth = Screen.width;
-            int scHeight = Screen.height;
-            int designWidth = 720; //这个是设计分辨率
-            int designHeight = 1280;
-            if (scWidth <= designWidth || scHeight <= designHeight)
-                return;
+//#if UNITY_IOS
+//        if(Util.Flag_ExternScreen())
+//        {
+//            int scWidth = Screen.width;
+//            int scHeight = Screen.height;
+//            int designWidth = 720; //这个是设计分辨率
+//            int designHeight = 1280;
+//            if (scWidth <= designWidth || scHeight <= designHeight)
+//                return;
 
-            float scale = 0.6f;
-            scWidth = (int)(scWidth * scale);
-            scHeight = (int)(scHeight * scale);
-            Screen.SetResolution(scWidth, scHeight, true);
-        }
-#endif
+//            float scale = 0.6f;
+//            scWidth = (int)(scWidth * scale);
+//            scHeight = (int)(scHeight * scale);
+//            Screen.SetResolution(scWidth, scHeight, true);
+//        }
+//#endif
     }
 }
