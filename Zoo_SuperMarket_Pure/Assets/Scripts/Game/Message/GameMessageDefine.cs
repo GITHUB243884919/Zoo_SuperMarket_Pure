@@ -628,6 +628,10 @@ namespace Game.MessageCenter
         /// 小游戏下个关卡
         /// </summary>
         CrossRoadNextGame,
+
+        RewardADLoadSuccess,
+
+        RewardADLoadFail,
     }
 }
 

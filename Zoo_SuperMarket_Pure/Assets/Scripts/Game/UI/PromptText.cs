@@ -25,6 +25,20 @@ public class PromptText
         string str = GlobalDataManager.GetInstance().i18n.GetL10N(langeKey);
         Instance().CreateText(str);
     }
+
+    public static void CreatePromptText(bool isL10N, string data)
+    {
+        if (!isL10N)
+        {
+            Instance().CreateText(data);
+            return;
+        }
+
+        string str = GlobalDataManager.GetInstance().i18n.GetL10N(data);
+        Instance().CreateText(str);
+
+    }
+
     public static void CreatePromptText_TestUI(string langeKey)
     {
         Instance().CreateText(langeKey);

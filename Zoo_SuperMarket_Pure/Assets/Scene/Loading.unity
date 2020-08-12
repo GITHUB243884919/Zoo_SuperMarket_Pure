@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 1963451979}
   - component: {fileID: 1963451980}
   - component: {fileID: 1963451983}
+  - component: {fileID: 1963451981}
   m_Layer: 0
   m_Name: GameRoot
   m_TagString: Untagged
@@ -220,6 +221,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf1f4aadc5478b40abbdff9b756334e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1963451981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963451974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b56fcf447e843429061c8b2af93f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagForChildDirectedTreatment: -1
+  android_InterstitialADUnit: 
+  android_RewardADUnit: ca-app-pub-8848869982073315/5250731258
+  iOS_InterstitialADUnit: 
+  iOS_RewardADUnit: ca-app-pub-8848869982073315/2444991553
+  isTestMode: 1
+  testDevices:
+  - BC3A75F13CC507180A2737580450DCF1
+  requestBtn: {fileID: 0}
+  stateTxt: {fileID: 0}
+  rewardTxt: {fileID: 0}
+  isInit: 0
 --- !u!114 &1963451983
 MonoBehaviour:
   m_ObjectHideFlags: 0

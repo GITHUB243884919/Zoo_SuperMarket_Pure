@@ -51,6 +51,10 @@ namespace CrossRoadGame
 
             RegistAllCompent();
 
+            MessageManager.GetInstance().Regist((int)GameMessageDefine.RewardADLoadSuccess, OnRewardADLoadSuccess);
+
+            MessageManager.GetInstance().Regist((int)GameMessageDefine.RewardADLoadFail, OnRewardADLoadFail);
+
         }
         /// <summary>
         /// 小动物过马路成功
@@ -116,6 +120,8 @@ namespace CrossRoadGame
         /// </summary>
         private void RegistAllCompent()
         {
+            RegistBtnAndClick("Btn_AD_Test", OnClickBtnADTest);
+
             uIBackgroundImage = RegistCompent<Image>("UIBackgroundImage");
             reviveButton = RegistBtnAndClick("ReviveButton", OnClickReceiveButton);
             uIBackgroundImage.gameObject.SetActive(true);
@@ -179,7 +185,6 @@ namespace CrossRoadGame
             //}
         }
 
-
         private void IninCompentData()
         {
             singleRoadSucceed = 0;
@@ -195,6 +200,46 @@ namespace CrossRoadGame
         {
             //money_1_Text.text = playerData.playerZoo.playerCoin.GetCoinByScene(playerData.playerZoo.currSceneID).coinShow;
             //money_2_Text.text = "0";
+        }
+
+        bool requestADButUnload = false;
+
+        private void OnClickBtnADTest(string str)
+        {
+            if (AdmobManager.GetInstance().isLoaded)
+            {
+                requestADButUnload = false;
+                AdmobManager.GetInstance().UserChoseToWatchAd(OnWatchRewardAdSuccessed_Test);
+            }
+            else
+            {
+                requestADButUnload = true;
+                PageMgr.ShowPage<UIWaitAd>(5000);
+            }
+        }
+
+        void OnRewardADLoadSuccess(Message msg)
+        {
+            PageMgr.ClosePage<UIWaitAd>();
+            if (requestADButUnload)
+            {
+                requestADButUnload = false;
+                AdmobManager.GetInstance().UserChoseToWatchAd(OnWatchRewardAdSuccessed_Test);
+            }
+        }
+
+        void OnRewardADLoadFail(Message msg)
+        {
+            PageMgr.ClosePage<UIWaitAd>();
+            if (requestADButUnload)
+            {
+                requestADButUnload = false;
+                PromptText.CreatePromptText(false, "Load AD Fail");
+            }
+        }
+
+        void OnWatchRewardAdSuccessed_Test()
+        {
         }
     }
 }
