@@ -212,13 +212,14 @@ namespace CrossRoadGame
         {
             gameModules.Stop();
 
-            float timeCount = 0.1f;
-            DOTween.To(() => timeCount, a => timeCount = a, 0.1f, timeLapseFailPage).OnComplete(new TweenCallback(delegate
-            {
-                PageMgr.ShowPage<UIGameFailPage>();
+            //float timeCount = 0.1f;
+            //DOTween.To(() => timeCount, a => timeCount = a, 0.1f, timeLapseFailPage).OnComplete(new TweenCallback(delegate
+            //{
+            //    PageMgr.ShowPage<UIGameFailPage>();
 
-            }));
-            
+            //}));
+
+            PageMgr.ShowPage<UIGameFailPage>();
             //弹出UI  失败
             LogWarp.LogError("游戏失败");
         }

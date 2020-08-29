@@ -238,7 +238,7 @@ MonoBehaviour:
   android_RewardADUnit: ca-app-pub-8848869982073315/5250731258
   iOS_InterstitialADUnit: 
   iOS_RewardADUnit: ca-app-pub-8848869982073315/2444991553
-  isTestMode: 1
+  isTestMode: 0
   testDevices:
   - BC3A75F13CC507180A2737580450DCF1
   requestBtn: {fileID: 0}

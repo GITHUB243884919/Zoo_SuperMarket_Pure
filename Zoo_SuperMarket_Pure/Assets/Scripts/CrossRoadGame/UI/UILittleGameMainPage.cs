@@ -80,6 +80,8 @@ namespace CrossRoadGame
             }
             tipsGroup.gameObject.SetActive(true);
 
+            PageMgr.ClosePage<UIGameVictoryPage>();
+            PageMgr.ClosePage<UIGameFailPage>();
         }
 
         private void OnGuideCrossRoad()

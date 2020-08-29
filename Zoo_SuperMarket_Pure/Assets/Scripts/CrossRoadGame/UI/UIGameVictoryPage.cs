@@ -67,9 +67,16 @@ namespace CrossRoadGame
         /// </summary>
         Text rewardRmb_text;
 
+        Text next_text;
+
         Image money_1_GoldIcon;
         Image mewardGold_Image;
         Transform tipsHand;
+
+        bool isShowAD = false;
+
+        bool requestADButUnload = false;
+
         public override void Awake(GameObject go)
         {
             base.Awake(go);
@@ -77,6 +84,7 @@ namespace CrossRoadGame
             playerData = GlobalDataManager.GetInstance().playerData;
             RegistAllCompent();
         }
+
         public override void Active()
         {
             base.Active();
@@ -100,6 +108,16 @@ namespace CrossRoadGame
             IninCompentData();
             returnButton.enabled = true;
             //receiveButton.enabled = true;
+
+            //随机决定是否广告
+            float p = UnityEngine.Random.Range(0f, 1f);
+            isShowAD = false;
+            next_text.text = next_text.text.Replace("AD ", "");
+            if (p >= 0.5f) {
+                isShowAD = true;
+                next_text.text = "AD " + next_text.text;
+            }
+
         }
         public override void Hide()
         {
@@ -124,9 +142,9 @@ namespace CrossRoadGame
             money_2_Text.text = "0";
 
             rewardGold_text = RegistCompent<Text>("Reward/RewardGold/Text");
-           
+
+            next_text = RegistCompent<Text>("ButtonGroup/ReceiveButton/Text_Next");
         }
-       
 
         /// <summary>
         /// 按钮  返回主界面
@@ -142,7 +160,6 @@ namespace CrossRoadGame
             returnButton.enabled = false;
             receiveButton.enabled = false;
 
-
         }
 
         /// <summary>
@@ -151,20 +168,66 @@ namespace CrossRoadGame
         /// <param name="obj"></param>
         private void OnClickReceiveButton(string obj)
         {
-            if (playerData.playerLittleGame.strength > 0)
-            {
-                SendCrossRoadAward();
-                //UFrame.MessageInt.Send((int)GameMessageDefine.AddStrength, -1);
-                CrossRoadStageManager.GetInstance().UnLoad();
-                CrossRoadGame.CrossRoadStageManager.GetInstance().Load(playerData.playerLittleGame.stageID + 1);
-                returnButton.enabled = false;
-                receiveButton.enabled = false;
-            }
-            else
-            {
-                PromptText.CreatePromptText("Ui_Text_133");
-            }
+
+            if (!isShowAD) {
+                Next();
+                return;
+			}
+
+            ShowAD();
+
+   //         //if (playerData.playerLittleGame.strength > 0)
+   //         //{
+   //         SendCrossRoadAward();
+			////UFrame.MessageInt.Send((int)GameMessageDefine.AddStrength, -1);
+			//CrossRoadStageManager.GetInstance().UnLoad();
+			//CrossRoadGame.CrossRoadStageManager.GetInstance().Load(playerData.playerLittleGame.stageID + 1);
+			//returnButton.enabled = false;
+			//receiveButton.enabled = false;
+			////}
+			////else
+			////{
+			////    PromptText.CreatePromptText("Ui_Text_133");
+			////}
+
+			////if (AdmobManager.GetInstance().isLoaded) {
+			////	requestADButUnload = false;
+			////	AdmobManager.GetInstance().UserChoseToWatchAd(() => {
+			////                 SendCrossRoadAward();
+			////                 //UFrame.MessageInt.Send((int)GameMessageDefine.AddStrength, -1);
+			////                 CrossRoadStageManager.GetInstance().UnLoad();
+			////                 CrossRoadGame.CrossRoadStageManager.GetInstance().Load(playerData.playerLittleGame.stageID + 1);
+			////                 returnButton.enabled = false;
+			////                 receiveButton.enabled = false;
+			////             });
+			////} else {
+			////	requestADButUnload = true;
+			////	PageMgr.ShowPage<UIWaitAd>(5000);
+			////}
+		}
+
+        void Next()
+		{
+            PageMgr.ClosePage<UIGameVictoryPage>();
+            PageMgr.ClosePage<UIGameFailPage>();
+
+            SendCrossRoadAward();
+            CrossRoadStageManager.GetInstance().UnLoad();
+            CrossRoadGame.CrossRoadStageManager.GetInstance().Load(playerData.playerLittleGame.stageID + 1);
+            returnButton.enabled = false;
+            receiveButton.enabled = false;
         }
+
+        void ShowAD()
+		{
+			if (AdmobManager.GetInstance().isLoaded) {
+				requestADButUnload = false;
+				AdmobManager.GetInstance().UserChoseToWatchAd(Next);
+			} else {
+				requestADButUnload = true;
+				PageMgr.ShowPage<UIWaitAd>(5000);
+			}
+		}
 
         /// <summary>
         /// 发送消息（奖励）

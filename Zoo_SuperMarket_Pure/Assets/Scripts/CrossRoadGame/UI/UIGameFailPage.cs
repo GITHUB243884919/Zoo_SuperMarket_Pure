@@ -55,10 +55,17 @@ namespace CrossRoadGame
 
         Transform tipsHand;
 
+        bool isShowAD = false;
+
+        bool requestADButUnload = false;
+
+        Text next_text;
+
         public UIGameFailPage() : base(UIType.Fixed, UIMode.DoNothing, UICollider.None)
         {
             uiPath = "UIPrefab/UIGameFail";
         }
+
         public override void Awake(GameObject go)
         {
             base.Awake(go);
@@ -84,6 +91,14 @@ namespace CrossRoadGame
             //else
             {
                 tipsHand.gameObject.SetActive(false);
+            }
+
+            float p = UnityEngine.Random.Range(0f, 1f);
+            isShowAD = false;
+            next_text.text = next_text.text.Replace("AD ", "");
+            if (p >= 0.5f) {
+                isShowAD = true;
+                next_text.text = "AD " + next_text.text;
             }
         }
 
@@ -115,6 +130,8 @@ namespace CrossRoadGame
             //money_1_GoldIcon = RegistCompent<Image>("MoneyGroup/Money_1/GoldIcon");
             //mewardGold_Image = RegistCompent<Image>("Reward/RewardGold/Image");
             //SetCorrectShowImage();
+
+            next_text = RegistCompent<Text>("ButtonGroup/AgainButton/Button/Text");
         }
         ///// <summary>
         ///// 修改对应的UiImage的sprite
@@ -146,21 +163,47 @@ namespace CrossRoadGame
         /// <param name="obj"></param>
         private void OnClickAgainButton(string obj)
         {
-            if (playerData.playerLittleGame.strength>0)
-            {
-                int stageID = CrossRoadModelManager.GetInstance().stageID;
-                CrossRoadStageManager.GetInstance().UnLoad();
-                CrossRoadGame.CrossRoadStageManager.GetInstance().Load(stageID);
+            ////if (playerData.playerLittleGame.strength>0)
+            //{
+            //    int stageID = CrossRoadModelManager.GetInstance().stageID;
+            //    CrossRoadStageManager.GetInstance().UnLoad();
+            //    CrossRoadGame.CrossRoadStageManager.GetInstance().Load(stageID);
+            //}
+            ////else
+            ////{
+            ////    PromptText.CreatePromptText("Ui_Text_133");
+
+            ////}
+            
+
+            if (!isShowAD) {
+                Next();
+                return;
             }
-            else
-            {
-                PromptText.CreatePromptText("Ui_Text_133");
 
-            }
-
-
+            ShowAD();
         }
 
+        void ShowAD()
+        {
+            if (AdmobManager.GetInstance().isLoaded) {
+                requestADButUnload = false;
+                AdmobManager.GetInstance().UserChoseToWatchAd(Next);
+            } else {
+                requestADButUnload = true;
+                PageMgr.ShowPage<UIWaitAd>(5000);
+            }
+        }
+
+        void Next()
+		{
+            PageMgr.ClosePage<UIGameVictoryPage>();
+            PageMgr.ClosePage<UIGameFailPage>();
+
+            int stageID = CrossRoadModelManager.GetInstance().stageID;
+            CrossRoadStageManager.GetInstance().UnLoad();
+            CrossRoadGame.CrossRoadStageManager.GetInstance().Load(stageID);
+        }
 
         private void IninCompentData()
         {
